@@ -9,9 +9,11 @@ export type ControlsrContextProps = {
     margin: [number, Dispatch<SetStateAction<number>>];
     aspectRatio: [number, Dispatch<SetStateAction<number>>];
     currentImage: [number | null, Dispatch<SetStateAction<number| null>>];
+    borderRadius: [number, Dispatch<SetStateAction<number>>];
     color1: [string, Dispatch<SetStateAction<string>>];
     color2: [string, Dispatch<SetStateAction<string>>];
     images: [string[], Dispatch<SetStateAction<string[]>>];
+    clipPath: [string, Dispatch<SetStateAction<string>>];
 };
 
 export const ControlsrContext = createContext<ControlsrContextProps>({
@@ -24,4 +26,6 @@ export const ControlsrContext = createContext<ControlsrContextProps>({
     color1: ['#eee', () => null],
     color2: ['#000', () => null],
     images: [[], () => null],
+    clipPath: ['', () => null],
+    borderRadius: [0, () => null]
 });

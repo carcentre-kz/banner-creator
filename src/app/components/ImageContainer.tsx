@@ -21,6 +21,8 @@ export const ImageContainer = () => {
         images: [images, setImages],
         margin: [margin],
         allowScreenshot: [allowScreenshot, setAllowScreenshot],
+        clipPath: [clipPath],
+        borderRadius: [borderRadius],
       } = useControls();
 
 
@@ -31,7 +33,9 @@ export const ImageContainer = () => {
         save('aspectRatio', aspectRatio.toString());
         save('color1', color1);
         save('color1', color1);
-      }, [aspectRatio, color1, margin, opacity, padding, save]);
+        save('clipPath', clipPath);
+        save('borderRadius', borderRadius.toString());
+      }, [aspectRatio, borderRadius, clipPath, color1, margin, opacity, padding, save]);
     
       useEffect(() => {
         const fetchData = async () => {
@@ -105,10 +109,10 @@ export const ImageContainer = () => {
             height: aspectRatio >= 1 ? '100%' : 'auto',
             width: aspectRatio >= 1 ? 'auto' : '100%',
             aspectRatio: 1,
-            borderRadius: 24,
+            borderRadius,
             marginInlineEnd: margin,
             opacity,
-            // clipPath: 'polygon(30% 0%, 100% 0%, 100% 100%, 30% 100%, 00% 50%)'
+            clipPath: clipPath ? `polygon(${clipPath})` : undefined,
           }}/> : null}
       </div>;
 }
