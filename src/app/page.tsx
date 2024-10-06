@@ -11,6 +11,7 @@ import { ImageContainer } from './components/ImageContainer';
 const ScreenshotComponent = () => {
   const {load} = useLocalStorage();
   const allowScreenshotState = useState(false);
+  const allowSingleScreenshotState = useState(false);
   const paddingState = useState(Number(load('padding') ?? 120));
   const opacityState = useState(Number(load('opacity') ?? 1));
   const marginState = useState(Number(load('margin') ?? 0));
@@ -37,6 +38,7 @@ const ScreenshotComponent = () => {
       images: imagesState,
       clipPath: clipPathState,
       borderRadius: borderRadiusState,
+      allowSingleScreenshot: allowSingleScreenshotState,
     }}>
 
     <div className={styles.page}>

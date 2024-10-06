@@ -15,6 +15,7 @@ enum Tab {
 export const Controls = () => {
     const {
         allowScreenshot: [allowScreenshot, setAllowScreenshot],
+        allowSingleScreenshot: [allowSingleScreenshot, setAllowSingleScreenshot],
         currentImage: [currentImage, setCurrentImage],
         images: [images],
       } = useControls();
@@ -40,7 +41,17 @@ export const Controls = () => {
         width: '100%'
       }}
       onClick={() => setAllowScreenshot(!allowScreenshot)}>
-        {allowScreenshot ? 'Stop' : 'Start'}
+        {allowScreenshot ? 'Stop' : 'Run'}
+    </button>
+    <button 
+      style={{
+        margin: 12,
+        padding: 12,
+        background: 'red',
+        width: '100%'
+      }}
+      onClick={() => setAllowSingleScreenshot(!allowSingleScreenshot)}>
+        Single screenshot
     </button>
   </div>
 }

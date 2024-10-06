@@ -4,6 +4,7 @@ import {createContext, Dispatch, SetStateAction} from 'react';
 
 export type ControlsrContextProps = {
     allowScreenshot: [boolean, Dispatch<SetStateAction<boolean>>];
+    allowSingleScreenshot: [boolean, Dispatch<SetStateAction<boolean>>];
     padding: [number, Dispatch<SetStateAction<number>>];
     opacity: [number, Dispatch<SetStateAction<number>>];
     margin: [number, Dispatch<SetStateAction<number>>];
@@ -18,6 +19,7 @@ export type ControlsrContextProps = {
 
 export const ControlsrContext = createContext<ControlsrContextProps>({
     allowScreenshot: [false, () => null],
+    allowSingleScreenshot: [false, () => null],
     padding: [1, () => null],
     opacity: [0, () => null],
     margin: [0, () => null],

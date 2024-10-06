@@ -21,6 +21,7 @@ export const ImageContainer = () => {
         images: [images, setImages],
         margin: [margin],
         allowScreenshot: [allowScreenshot, setAllowScreenshot],
+        allowSingleScreenshot: [allowSingleScreenshot],
         clipPath: [clipPath],
         borderRadius: [borderRadius],
       } = useControls();
@@ -80,6 +81,13 @@ export const ImageContainer = () => {
     
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [allowScreenshot, currentImage])
+
+      useEffect(() => {
+        if (allowSingleScreenshot && currentImage !== null) {
+          takeScreenshot();
+        }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [allowSingleScreenshot, currentImage])
     
       
     
@@ -104,7 +112,7 @@ export const ImageContainer = () => {
           alignItems: 'center',
           justifyContent: 'flex-end'
         }}>
-          {currentImage !== null ? <Image src={`/${images[currentImage]}`} alt="1" width={100} height={100} 
+          {currentImage !== null ? <Image src={`/${images[currentImage]}`} alt="1" width={1000} height={1000} 
           style={{
             height: aspectRatio >= 1 ? '100%' : 'auto',
             width: aspectRatio >= 1 ? 'auto' : '100%',
